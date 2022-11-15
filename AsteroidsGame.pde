@@ -13,7 +13,7 @@ public void draw()
   background(0);
   for(int i = 0; i < starlight.length; i++){
     starlight[i].show();
-    starlight[i].twinkle();
+    starlight[i].twinkle(); // stars twinkle
   }
   swoosh();
   pow.show();
@@ -29,7 +29,7 @@ boolean leftPressed = false;
 boolean rightPressed = false;
 
 public void keyPressed(){
-  if(key == 'w')
+  if(key == 'w') // move
     wPressed = true;
   if(key == 'a')
     aPressed = true;
@@ -38,10 +38,17 @@ public void keyPressed(){
   if(key == 'd')
     dPressed = true;
     
-  if(keyCode == LEFT)
+  if(keyCode == LEFT) // rotate
     leftPressed = true;
   if(keyCode == RIGHT)
     rightPressed = true;
+  
+  if(key == 'g'){ // hyperspace
+    pow.setXSpeed(0);
+    pow.setYSpeed(0);
+    pow.setCenterX(Math.random()*501);
+    pow.setCenterY(Math.random()*501);
+  }
 }
 
 public void keyReleased(){
@@ -62,15 +69,15 @@ public void keyReleased(){
 
 public void swoosh(){
   if(wPressed)
-    pow.setMyYSpeed(pow.getMyYSpeed()-0.05);
+    pow.setYSpeed(pow.getYSpeed()-0.05);
   if(aPressed)
-    pow.setMyXSpeed(pow.getMyXSpeed()-.05);
+    pow.setXSpeed(pow.getXSpeed()-.05);
   if(sPressed)
-    pow.setMyYSpeed(pow.getMyYSpeed()+.05);
+    pow.setYSpeed(pow.getYSpeed()+.05);
   if(dPressed)
-    pow.setMyXSpeed(pow.getMyXSpeed()+.05);
+    pow.setXSpeed(pow.getXSpeed()+.05);
   if(leftPressed)
-    pow.setMyPointDirection(pow.getMyPointDirection()-3);
+    pow.setPointDirection(pow.getPointDirection()-3);
   if(rightPressed)
-    pow.setMyPointDirection(pow.getMyPointDirection()+3);
+    pow.setPointDirection(pow.getPointDirection()+3);
 }
