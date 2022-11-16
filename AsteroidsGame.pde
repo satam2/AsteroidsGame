@@ -1,6 +1,5 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
-double degrees = 0;
 public void setup() 
 {
   size(500,500);
@@ -18,23 +17,16 @@ public void draw()
   swoosh();
   pow.show();
   pow.move();
-  pow.turn(degrees);
 }
 
-boolean wPressed = false;
 boolean aPressed = false;
-boolean sPressed = false;
 boolean dPressed = false;
 boolean leftPressed = false;
 boolean rightPressed = false;
 
 public void keyPressed(){
-  if(key == 'w') // move
-    wPressed = true;
-  if(key == 'a')
+  if(key == 'a') // move
     aPressed = true;
-  if(key == 's')
-    sPressed = true;
   if(key == 'd')
     dPressed = true;
     
@@ -52,12 +44,8 @@ public void keyPressed(){
 }
 
 public void keyReleased(){
-  if(key == 'w')
-    wPressed = false;
   if(key == 'a')
     aPressed = false;
-  if(key == 's')
-    sPressed = false;
   if(key == 'd')
     dPressed = false;
       
@@ -68,16 +56,12 @@ public void keyReleased(){
 }
 
 public void swoosh(){
-  if(wPressed)
-    pow.setYSpeed(pow.getYSpeed()-0.05);
   if(aPressed)
-    pow.setXSpeed(pow.getXSpeed()-.05);
-  if(sPressed)
-    pow.setYSpeed(pow.getYSpeed()+.05);
+    pow.accelerate(.025);
   if(dPressed)
-    pow.setXSpeed(pow.getXSpeed()+.05);
+    pow.accelerate(-.025);
   if(leftPressed)
-    pow.setPointDirection(pow.getPointDirection()-3);
+    pow.turn(-3);
   if(rightPressed)
-    pow.setPointDirection(pow.getPointDirection()+3);
+    pow.turn(3);
 }
