@@ -1,12 +1,14 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
-public void setup() {
+public void setup() 
+{
   size(500,500);
   background(0);
   for(int i = 0; i < starlight.length; i++)
     starlight[i] = new Star();
 }
-public void draw() {
+public void draw() 
+{
   background(0);
   for(int i = 0; i < starlight.length; i++){
     starlight[i].show();
@@ -23,9 +25,9 @@ boolean leftPressed = false;
 boolean rightPressed = false;
 
 public void keyPressed(){
-  if(key == 'a') // accelerate
+  if(key == 'a' || key == 'A') // accelerate
     aPressed = true;
-  if(key == 'd')
+  if(key == 'd' || key == 'D')
     dPressed = true;
     
   if(keyCode == LEFT) // rotate
@@ -33,25 +35,27 @@ public void keyPressed(){
   if(keyCode == RIGHT)
     rightPressed = true;
   
-  if(key == 'g'){ // hyperspace
-    pow.setXSpeed(0);
-    pow.setYSpeed(0);
-    pow.setCenterX(Math.random()*501);
-    pow.setCenterY(Math.random()*501);
-    pow.turn(Math.random()*361);
-  }
+  if(key == 'g' || key == 'G') // hyperspace
+    pow.fade();
 }
 
 public void keyReleased(){
-  if(key == 'a')
+  if(key == 'a' || key == 'A')
     aPressed = false;
-  if(key == 'd')
+  if(key == 'd' || key == 'D')
     dPressed = false;
       
   if(keyCode == LEFT)
     leftPressed = false;
   if(keyCode == RIGHT)
     rightPressed = false;
+  if(key == 'g' || key == 'G'){ // hyperspace
+    pow.setXSpeed(0);
+    pow.setYSpeed(0);
+    pow.setCenterX(Math.random()*501);
+    pow.setCenterY(Math.random()*501);
+    pow.turn(Math.random()*360);
+  }
 }
 
 public void swoosh(){
