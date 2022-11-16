@@ -25,7 +25,7 @@ boolean leftPressed = false;
 boolean rightPressed = false;
 
 public void keyPressed(){
-  if(key == 'a') // move
+  if(key == 'a') // accelerate
     aPressed = true;
   if(key == 'd')
     dPressed = true;
