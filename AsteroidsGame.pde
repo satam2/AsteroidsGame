@@ -1,14 +1,12 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
-public void setup() 
-{
+public void setup() {
   size(500,500);
   background(0);
   for(int i = 0; i < starlight.length; i++)
     starlight[i] = new Star();
 }
-public void draw() 
-{
+public void draw() {
   background(0);
   for(int i = 0; i < starlight.length; i++){
     starlight[i].show();
@@ -40,6 +38,7 @@ public void keyPressed(){
     pow.setYSpeed(0);
     pow.setCenterX(Math.random()*501);
     pow.setCenterY(Math.random()*501);
+    pow.turn(Math.random()*361);
   }
 }
 
