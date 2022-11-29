@@ -1,11 +1,14 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 public void setup() 
 {
   size(500,500);
   background(0);
   for(int i = 0; i < starlight.length; i++)
     starlight[i] = new Star();
+  for(int i = 0; i < 10; i++)
+    rocks.add(new Asteroid());
 }
 public void draw() 
 {
