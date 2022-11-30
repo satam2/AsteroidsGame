@@ -1,8 +1,8 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
-public void setup() 
-{
+
+public void setup() {
   size(500,500);
   background(0);
   for(int i = 0; i < starlight.length; i++)
@@ -10,15 +10,19 @@ public void setup()
   for(int i = 0; i < 10; i++)
     rocks.add(new Asteroid());
 }
-public void draw() 
-{
+
+public void draw() {
   background(0);
   for(int i = 0; i < starlight.length; i++){
     starlight[i].show();
     starlight[i].twinkle(); // stars twinkle
   }
-  swoosh();
-  pow.show();
+  for(int i = 0; i < rocks.size(); i ++){
+    rocks.get(i).show();
+    rocks.get(i).move();
+  }
+  swoosh(); // spaceship acceleration and rotation
+  pow.show(); 
   pow.move();
 }
 
@@ -37,9 +41,6 @@ public void keyPressed(){
     leftPressed = true;
   if(keyCode == RIGHT)
     rightPressed = true;
-  
-  if(key == 'g' || key == 'G') // hyperspace
-    pow.fade();
 }
 
 public void keyReleased(){
@@ -52,7 +53,7 @@ public void keyReleased(){
     leftPressed = false;
   if(keyCode == RIGHT)
     rightPressed = false;
-  if(key == 'g' || key == 'G'){ // hyperspace
+  if(key == 'h' || key == 'H'){ // hyperspace
     pow.setXSpeed(0);
     pow.setYSpeed(0);
     pow.setCenterX(Math.random()*501);
