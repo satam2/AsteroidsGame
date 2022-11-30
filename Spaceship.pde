@@ -5,7 +5,7 @@ class Spaceship extends Floater{
     xCorners = new int[] {-8,16,-8};   
     yCorners =  new int[] {8,0,-8};   
     myOpacity = 255;
-    myColor = color(150,150,150,myOpacity);  
+    myColor = color(150,150,150);  
     myCenterX = 250;
     myCenterY = 250;    
     myXspeed = 0;
@@ -24,10 +24,5 @@ class Spaceship extends Floater{
   }
   public void setCenterY(double y){
     myCenterY = y;
-  }
-  public void fade(){
-    myOpacity --; 
-    if(myOpacity == 0)
-      myOpacity++;
   }
 }
