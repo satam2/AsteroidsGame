@@ -1,10 +1,8 @@
 class Spaceship extends Floater{  
-  float myOpacity;
   public Spaceship(){
     corners = 3;  
     xCorners = new int[] {-8,16,-8};   
     yCorners =  new int[] {8,0,-8};   
-    myOpacity = 255;
     myColor = color(150,150,150);  
     myCenterX = 250;
     myCenterY = 250;    
