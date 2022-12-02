@@ -17,9 +17,13 @@ public void draw() {
     starlight[i].show();
     starlight[i].twinkle(); // stars twinkle
   }
-  for(int i = 0; i < rocks.size(); i ++){
+  for(int i = 0; i < rocks.size(); i++){
     rocks.get(i).show();
     rocks.get(i).move();
+    if(dist(rocks.get(i).getX(), rocks.get(i).getY(), pow.getX(), pow.getY())<15){
+      rocks.remove(i);
+      i--;
+    }
   }
   swoosh(); // spaceship acceleration and rotation
   pow.show(); 
