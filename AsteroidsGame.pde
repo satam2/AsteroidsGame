@@ -1,6 +1,7 @@
 Spaceship pow = new Spaceship();
 Star[] starlight = new Star[500];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+ArrayList <Bullet> mag = new ArrayList <Bullet>();
 
 public void setup() {
   size(500,500);
@@ -20,7 +21,7 @@ public void draw() {
   for(int i = 0; i < rocks.size(); i++){
     rocks.get(i).show();
     rocks.get(i).move();
-    if(dist(rocks.get(i).getX(), rocks.get(i).getY(), pow.getX(), pow.getY())<15){
+    if(dist((float)rocks.get(i).getX(), (float)rocks.get(i).getY(), (float)pow.getX(), (float)pow.getY())<15){
       rocks.remove(i);
       i--;
     }
@@ -32,6 +33,7 @@ public void draw() {
 
 boolean aPressed = false;
 boolean dPressed = false;
+boolean addBull = false;
 boolean leftPressed = false;
 boolean rightPressed = false;
 
@@ -40,6 +42,8 @@ public void keyPressed(){
     aPressed = true;
   if(key == 'd' || key == 'D')
     dPressed = true;
+  if(key == ' ')
+     addBull = true;
     
   if(keyCode == LEFT) // rotate
     leftPressed = true;
@@ -52,6 +56,8 @@ public void keyReleased(){
     aPressed = false;
   if(key == 'd' || key == 'D')
     dPressed = false;
+  if(key == ' ')
+    addBull = false;
       
   if(keyCode == LEFT)
     leftPressed = false;
@@ -75,4 +81,6 @@ public void swoosh(){
     pow.turn(-3);
   if(rightPressed)
     pow.turn(3);
+  if(addBull)
+    mag.add(new Bullet(pow));
 }
