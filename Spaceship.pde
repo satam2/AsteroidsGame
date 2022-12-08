@@ -56,11 +56,3 @@ class Spaceship extends Floater{
   public double getYspeed(){
     return myYspeed;
   }
-}
-  public double getXspeed(){
-    return myXspeed;
-  }
-  public double getYspeed(){
-    return myYspeed;
-  }
-}
