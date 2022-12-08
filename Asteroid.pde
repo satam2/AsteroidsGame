@@ -3,9 +3,9 @@ class Asteroid extends Floater{
   Asteroid(){
     rotSpeed = (Math.random()*8)-4;
     corners = 7; 
-    xCorners = new int[]{-6,-1,1,5,6,-2,-7}; 
-    yCorners = new int[]{6,4,5,2,-8,-7,-1};
-    myColor = color(149,139,132);
+    xCorners = new int[]{-9,-2,2,8,9,-3,-11}; 
+    yCorners = new int[]{-9,-6,-8,-3,12,11,2,-9};
+    myColor = color(183,135,113);
     myCenterX = Math.random()*500;
     myCenterY = Math.random()*500;
     myXspeed = (Math.random()*4)-2;
@@ -16,6 +16,18 @@ class Asteroid extends Floater{
   public void move(){
     turn(rotSpeed);
     super.move();
+  }
+  
+  protected void wrap(){ // make wrapping more smooth
+    if(myCenterX > width+5)  
+      myCenterX = -5;    
+    if (myCenterX < -5)  
+      myCenterX = width+5;    
+    
+    if(myCenterY > height+5)
+      myCenterY = -5;    
+    if (myCenterY < -5)
+      myCenterY = height+5;    
   }
   
   public double getX(){
