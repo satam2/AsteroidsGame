@@ -21,7 +21,7 @@ public void setup() {
 public void draw() {
   background(0);
   textSize(20);
-  fill(255);
+  fill(255,0,0);
   text("Ammo: " + (30-ammo), 440,20);
   text("Health: " + health + " HP", 70,20);
   for(int i = 0; i < starlight.length; i++){ // show stars
@@ -65,7 +65,7 @@ public void draw() {
     pow.move();
   }
   else if(gameOver){
-    fill(255);
+    fill(255,0,0);
     textSize(75);
     if(win){
       text("YOU WIN!", 250,250);
