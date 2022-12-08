@@ -27,7 +27,9 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     //change the x and y coordinates by myXspeed and myYspeed       
     myCenterX += myXspeed;    
     myCenterY += myYspeed;     
-
+    wrap();
+  }   
+  protected void wrap(){
     //wrap around screen    
     if(myCenterX >width)
     {     
@@ -46,11 +48,10 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     {     
       myCenterY = height;    
     }   
-  }   
+  }
   public void show ()  //Draws the floater at the current position  
   {             
-    fill(myColor);   
-    stroke(myColor);    
+    col();   
     
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
@@ -73,4 +74,8 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     rotate(-1*dRadians);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }   
+  protected void col(){
+    fill(myColor);   
+    stroke(myColor); 
+  }
 } 
