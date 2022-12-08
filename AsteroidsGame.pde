@@ -34,7 +34,7 @@ public void draw() {
   if(!gameOver){ // if game is still going
     for(int i = 0; i < rocks.size(); i++){ // rock and ship collision
       rocks.get(i).show();
-      //rocks.get(i).move();
+      rocks.get(i).move();
       float d = dist((float)rocks.get(i).getX(), (float)rocks.get(i).getY(), (float)pow.getX(), (float)pow.getY());
       if(d<20){
         rocks.remove(i);
